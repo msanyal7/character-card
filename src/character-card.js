@@ -17,7 +17,7 @@ class CharacterCard extends LitElement {
     reflect: true,
     
   },
-  openProp: {
+  opened: {
     type: Boolean,
     reflect: true,
    },
@@ -142,7 +142,7 @@ static styles= css`
 
   updated(changedProperties){
     changedProperties.forEach((oldValue, propName)=>{
-      if(propName === "openProp"){
+      if(propName === "opened"){
         this.dispatchEvent(new CustomEvent('opened-changed', {
           composed: true,
           bubbles: true,

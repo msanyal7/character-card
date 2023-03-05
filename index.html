@@ -39,7 +39,7 @@
 
 <body>
   <div class = "buttons">
-    <button btn>Details!</button> 
+    <button class="btn">Details!</button> 
     <button id="btn2">Change Color </button>
     <button class = "btn1"> Make Copy!</button> 
     <button class="modifytitle">Change Name</button>
@@ -55,19 +55,19 @@
   <script type="module" src="./src/character-card.js"></script>
 
   <script>
-    // making copy of card 
+    // making copy of card good
 
      document.querySelector('.btn1').addEventListener('click', function(e) {
       const copyCard = document.querySelector('character-card').cloneNode(true);
       document.querySelector('#showCard').appendChild(copyCard);
     });
 
-    //deleting card button 
+    //deleting card button good
     document.querySelector("#deletecard").addEventListener("click", function (e) {
-          if ( document.querySelector("#showCard :last-child") !==
+          if ( document.querySelector("#showCard character-card:last-child") !==
             document.querySelector("character-card")
           ) {
-            document.querySelector("#showCard :last-child").remove();
+            document.querySelector("#showCard character-card:last-child").remove();
           } else {
             alert("No deleting pusheen!!");
           }
@@ -81,13 +81,35 @@
       }
     });
 
-    // descrip
-    document.querySelector('.btn').addEventListener('click', function(e) {
-    
-      document.querySelectorAll('character-card').forEach((item)=>{
-        item.openProp = !item.openProp;
-      })
-    });
+    //
+    document
+        .querySelector(".btn")
+        .addEventListener("click", function (e) {
+          document.querySelectorAll("character-card").forEach((item) => {
+            item.opened = !item.opened;
+          });
+        });
+
+
+    // chnaging name button good
+    document.querySelector('.modifytitle').addEventListener('click', function(e) {
+    let name = prompt("Name Pusheen: ");
+    if (name){
+    document.querySelector('character-card').characterName = name;
+    }
+});
+
+/*
+document.querySelector('btn2').addEventListener('click', function(e) {
+    if (document.querySelectorAll("character-card").backColorChange) {
+      document.querySelectorAll('character-card').forEach
+    }
+    else {
+      item.classList.remove('basic');
+    }
+  });
+});
+*/ 
 
   </script>
 
