@@ -43,7 +43,7 @@
     <button id="btn2">Change Color </button>
     <button class = "btn1"> Make Copy!</button> 
     <button class="modifytitle">Change Name</button>
-      <button id="deletelastcard">Delete</button>
+      <button id="deletecard">Delete</button>
   </div>
 
   <div id = "showCard">
@@ -62,19 +62,16 @@
       document.querySelector('#showCard').appendChild(copyCard);
     });
 
-    //chnaging color button
-    document.querySelector('.btn2').addEventListener('click', function(e) {
-      if(document.querySelector('character-card').backColorChange){
-        document.querySelectorAll('character-card').forEach((item)=>{
-          item.backColorChange = false;
+    //deleting card button 
+    document.querySelector("#deletecard").addEventListener("click", function (e) {
+          if ( document.querySelector("#showCard :last-child") !==
+            document.querySelector("character-card")
+          ) {
+            document.querySelector("#showCard :last-child").remove();
+          } else {
+            alert("No deleting pusheen!!");
+          }
         });
-      }
-      else{
-        document.querySelectorAll('character-card').forEach((item)=>{
-          item.backColorChange = true;
-        });
-      }
-    });
 
     // custom event area 
     document.body.addEventListener('opened-changed', (e)=>{
