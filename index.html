@@ -40,7 +40,7 @@
 <body>
   <div class = "buttons">
     <button class="btn">Details!</button> 
-    <button id="btn2">Change Color </button>
+    <button class ="btn2">Change Color </button>
     <button class = "btn1"> Make Copy!</button> 
     <button class="modifytitle">Change Name</button>
       <button id="deletecard">Delete</button>
@@ -99,17 +99,16 @@
     }
 });
 
-/*
-document.querySelector('btn2').addEventListener('click', function(e) {
-    if (document.querySelectorAll("character-card").backColorChange) {
-      document.querySelectorAll('character-card').forEach
-    }
-    else {
-      item.classList.remove('basic');
-    }
-  });
-});
-*/ 
+// color change button good 
+        document
+        .querySelector(".btn2")
+        .addEventListener("click", function (e) {
+          const randomColor = "lightgreen";
+          document.querySelector("character-card").backColor = randomColor;
+        });
+
+
+
 
   </script>
 

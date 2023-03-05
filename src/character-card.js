@@ -12,10 +12,10 @@ class CharacterCard extends LitElement {
   characterBio: {
     type: String,
   },
-  accentColor:{
+ backColor: {
     type: String,
     reflect: true,
-    
+    attribute: "back-color",
   },
   opened: {
     type: Boolean,
@@ -33,12 +33,7 @@ class CharacterCard extends LitElement {
   memeImg:{
     type: String
   },
-  backColorChange:{
-    type: Boolean,
-    reflect: true,
-    attribute: "accent-color",
-  },
-
+ 
  }
 
 
@@ -47,10 +42,11 @@ static styles= css`
       display: inline-block;
       vertical-align: text-top;
     }
-    :host([accent-color="orange"]) .container {
-        background-color: var(--character-card-accent-color, orange);
-        color: white;
-      }
+    
+    :host([back-color="lightgreen"]) .card {
+      background-color: var(--character-card-back-color, lightgreen);
+      color: black;
+    }
      .card{
       background-color: #ffb6c1;
       width: 400px;
