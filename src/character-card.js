@@ -30,6 +30,9 @@ class CharacterCard extends LitElement {
   pusheenImg:{
     type: String
   },
+  memeImg:{
+    type: String
+  },
 
  }
 
@@ -88,6 +91,10 @@ static styles= css`
         display:none; 
       }
     }
+
+    .meme{
+        width: 300px;
+    }
     
     @media screen and (max-width: 600px){
       //.card{
@@ -113,9 +120,10 @@ static styles= css`
     this.characterBio = "Pusheen, an adorable household name cat. Pusheen"
     + "goes on many adventures and helps people learn about the cat life.";
     this.topMeme= "xxx";
-    this.bottom="hhh";
+    this.bottomMeme="hhh";
     this.pusheenImg = "http://aepicos.com/codepen/images/pusheen1.png";
     this.opened = false; 
+    this.memeImg="https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fphotos%2Fimages%2Fnewsfeed%2F001%2F878%2F329%2Fdfa.jpg";
   }
 
   toggleEvent(){
@@ -144,13 +152,14 @@ static styles= css`
 
   render() {
     return html`
+    <!--
       <div class = "buttons">
         <button btn>Details!</button> 
         <button id="btn2">Change Color </button>
         <button class = "btn1"> Make Copy!</button> 
         <button class="modifytitle">Change Name</button>
           <button id="deletelastcard">Delete</button>
-      </div>
+      </div> -->
       <div class = "card">
         <!-- Title/Header Code -->
         <h4 class = "title">${this.characterName}</h4>
@@ -159,9 +168,17 @@ static styles= css`
             src = "http://aepicos.com/codepen/images/pusheen1.png">
         <details class = 'details'>
           <summary>Poosh</summary>
-          ${this.characterBio}
+         <p> ${this.characterBio}</p>
+         <slot></slot>
         </details>
-        </section>
+       <!-- meme maker area -->
+       <div class ="meme">
+       <meme-maker
+        image-url="${this.memeImg}"
+        top-text="${this.topMeme}"
+        bottom-text="${this.bottomMeme}">
+         </meme-maker>
+     </div>
       </div>
     `;
   }
@@ -169,4 +186,3 @@ static styles= css`
 }
 
 customElements.define('character-card', CharacterCard);
-
