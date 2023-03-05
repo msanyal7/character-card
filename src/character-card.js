@@ -9,6 +9,9 @@ class CharacterCard extends LitElement {
     type: String,
     reflect: true,
   },
+  nickName: {
+   type: String,
+  },
   characterBio: {
     type: String,
   },
@@ -119,6 +122,7 @@ static styles= css`
   constructor() {
     super();
     this.characterName = 'Pusheen';
+    this.nickName = 'Nick Name: Pusheenie';
     this.characterBio = "Pusheen, an adorable household name cat. Pusheen"
     + "goes on many adventures and helps people learn about the cat life.";
     this.topMeme= "xxx";
@@ -165,6 +169,7 @@ static styles= css`
       <div class = "card">
         <!-- Title/Header Code -->
         <h4 class = "title">${this.characterName}</h4>
+        <h5 class = "subtitle">${this.nickName}</h5>
       <!-- Image Code -->
       <div class ="meme">
        <meme-maker
