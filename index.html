@@ -12,20 +12,88 @@
 
   <style>
     html,
+
     body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
       background-color: #ededed;
     }
+    button:hover {
+        background-color: lightblue;
+      }
+
+      button:focus {
+        background-color: lightcoral;
+      }
+      button{
+  text-transform: uppercase;
+  padding: 5px;
+  background-color: grey;
+  color: pink; 
+  margin: 5px; 
+}
   </style>
   <title>character-card</title>
 </head>
 
 <body>
-  <character-card></character-card>
+  <div class = "buttons">
+    <button btn>Details!</button> 
+    <button id="btn2">Change Color </button>
+    <button class = "btn1"> Make Copy!</button> 
+    <button class="modifytitle">Change Name</button>
+      <button id="deletelastcard">Delete</button>
+  </div>
+
+  <div id = "showCard">
+  <character-card>
+ <p> Testing 123</p>
+  </character-card>
+</div>
 
   <script type="module" src="./src/character-card.js"></script>
+
+  <script>
+    // making copy of card 
+
+     document.querySelector('.btn1').addEventListener('click', function(e) {
+      const copyCard = document.querySelector('character-card').cloneNode(true);
+      document.querySelector('#showCard').appendChild(copyCard);
+    });
+
+    //chnaging color button
+    document.querySelector('.btn2').addEventListener('click', function(e) {
+      if(document.querySelector('character-card').backColorChange){
+        document.querySelectorAll('character-card').forEach((item)=>{
+          item.backColorChange = false;
+        });
+      }
+      else{
+        document.querySelectorAll('character-card').forEach((item)=>{
+          item.backColorChange = true;
+        });
+      }
+    });
+
+    // custom event area 
+    document.body.addEventListener('opened-changed', (e)=>{
+      if(e.target === document.querySelector('character-card')){
+        console.log(e.detail.value);
+        document.querySelector('.btn').innerText = e.detail.value ? "Hide" : "Show";
+      }
+    });
+
+    // descrip
+    document.querySelector('.btn').addEventListener('click', function(e) {
+    
+      document.querySelectorAll('character-card').forEach((item)=>{
+        item.openProp = !item.openProp;
+      })
+    });
+
+  </script>
+
 </body>
 
 </html>

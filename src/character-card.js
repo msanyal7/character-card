@@ -15,9 +15,9 @@ class CharacterCard extends LitElement {
   accentColor:{
     type: String,
     reflect: true,
-    attribute: "accent-color",
+    
   },
-  opened: {
+  openProp: {
     type: Boolean,
     reflect: true,
    },
@@ -33,6 +33,11 @@ class CharacterCard extends LitElement {
   memeImg:{
     type: String
   },
+  backColorChange:{
+    type: Boolean,
+    reflect: true,
+    attribute: "accent-color",
+  },
 
  }
 
@@ -42,10 +47,18 @@ static styles= css`
       display: inline-block;
       vertical-align: text-top;
     }
-    :host([accent-color="blue"]) .card {
-      background-color: var(--character-card-accent-color, blue);
-     }
-
+    :host([accent-color="orange"]) .container {
+        background-color: var(--character-card-accent-color, orange);
+        color: white;
+      }
+     .card{
+      background-color: #ffb6c1;
+      width: 400px;
+      max-width: 400px;
+      height:auto;
+      padding-top:15px
+      
+    }
     button{
       text-transform: uppercase;
       padding: 5px;
@@ -60,14 +73,7 @@ static styles= css`
       margin: 5px;
       
     }
-    .card{
-      background-color: #ffb6c1;
-      width: 400px;
-      max-width: 400px;
-      height:auto;
-      padding-top:15px
-      
-    }
+  
     h4{
       padding: 4px; 
       margin: 5px;
@@ -136,7 +142,7 @@ static styles= css`
 
   updated(changedProperties){
     changedProperties.forEach((oldValue, propName)=>{
-      if(propName === "opened"){
+      if(propName === "openProp"){
         this.dispatchEvent(new CustomEvent('opened-changed', {
           composed: true,
           bubbles: true,
@@ -164,20 +170,17 @@ static styles= css`
         <!-- Title/Header Code -->
         <h4 class = "title">${this.characterName}</h4>
       <!-- Image Code -->
-      <img class="image"
-            src = "http://aepicos.com/codepen/images/pusheen1.png">
+      <div class ="meme">
+       <meme-maker
+        image-url="${this.pusheenImg}"
+        ></meme-maker>
+         </meme-maker>
+     </div>
         <details class = 'details'>
           <summary>Poosh</summary>
          <p> ${this.characterBio}</p>
          <slot></slot>
         </details>
-       <!-- meme maker area -->
-       <div class ="meme">
-       <meme-maker
-        image-url="${this.memeImg}"
-        top-text="${this.topMeme}"
-        bottom-text="${this.bottomMeme}">
-         </meme-maker>
      </div>
       </div>
     `;
