@@ -75,16 +75,16 @@
 
     // custom event area 
     document.body.addEventListener('opened-changed', (e)=>{
-      if(e.target === document.querySelector('character-card')){
+      if(e.target === 
+      document.querySelector('character-card')){
         console.log(e.detail.value);
-        document.querySelector('.btn').innerText = e.detail.value ? "Hide" : "Show";
+        document.querySelector('.btn').innerText
+         = e.detail.value ? "Hide" : "Show";
       }
     });
 
     //
-    document
-        .querySelector(".btn")
-        .addEventListener("click", function (e) {
+    document.querySelector(".btn").addEventListener("click", function (e) {
           document.querySelectorAll("character-card").forEach((item) => {
             item.opened = !item.opened;
           });
@@ -105,11 +105,15 @@
         .addEventListener("click", function (e) {
           const randomColor = "lightgreen";
           document.querySelector("character-card").backColor = randomColor;
-        });
+        })
         */
       document.querySelector(".btn2").addEventListener("click", function (e) {
           const randomColor = "lightgreen";
+          const randomColor2 = "lightblue";
+          if (changeColor=true){
           document.querySelector("character-card").backColor = randomColor;
+          changeColor = false;
+          }
         }); 
 
 

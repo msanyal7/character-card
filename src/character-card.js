@@ -33,10 +33,13 @@ class CharacterCard extends LitElement {
   pusheenImg:{
     type: String
   },
+  changeColor:{
+   type: Boolean,
+   reflect: false,
+  },
   memeImg:{
     type: String
   },
- 
  }
 
 
@@ -48,6 +51,10 @@ static styles= css`
     
     :host([back-color="lightgreen"]) .card {
       background-color: var(--character-card-back-color, lightgreen);
+      color: black;
+    }
+    :host([back-color="lightblue"]) .card {
+      background-color: var(--character-card-back-color, lightblue);
       color: black;
     }
      .card{
