@@ -130,19 +130,18 @@ static styles= css`
     super();
     this.characterName = 'Pusheen';
     this.nickName = 'Nick Name: Pusheenie';
-    this.characterBio = "Pusheen, an adorable household name cat. Pusheen"
+    this.characterBio = "Pusheen, an adorable household name cat. Pusheen "
     + "goes on many adventures and helps people learn about the cat life.";
     this.topMeme= "xxx";
     this.bottomMeme="hhh";
     this.pusheenImg = "http://aepicos.com/codepen/images/pusheen1.png";
     this.opened = false; 
+    this.changeColor= false;
     this.memeImg="https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fphotos%2Fimages%2Fnewsfeed%2F001%2F878%2F329%2Fdfa.jpg";
   }
 
   toggleEvent(){
-    const state = this.shadowRoot.querySelector('details').getAttribute('open') === "" 
-    ? true : 
-    false;
+    const state = this.shadowRoot.querySelector('details').getAttribute('open') === "" ? true :  false;
     this.opened= state;
     cosnole.log(this.opened);
   }

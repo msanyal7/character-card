@@ -58,8 +58,10 @@
     // making copy of card good
 
      document.querySelector('.btn1').addEventListener('click', function(e) {
-      const copyCard = document.querySelector('character-card').cloneNode(true);
-      document.querySelector('#showCard').appendChild(copyCard);
+      const copyCard = document.querySelector('character-card')
+      .cloneNode(true);
+      document.querySelector('#showCard')
+      .appendChild(copyCard);
     });
 
     //deleting card button good
