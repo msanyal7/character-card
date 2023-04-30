@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import "@lrnwebcomponents/meme-maker/meme-maker.js"
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+
 
 class CharacterCard extends LitElement {
   static properties = {
@@ -107,11 +107,6 @@ static styles= css`
     .meme{
         width: 300px;
     }
-    
-    @media screen and (max-width: 600px){
-      //.card{
-        
-    }
     .basic{
       background-color: #CBC3E3;
       color: black;
@@ -164,14 +159,6 @@ static styles= css`
 
   render() {
     return html`
-    <!--
-      <div class = "buttons">
-        <button btn>Details!</button> 
-        <button id="btn2">Change Color </button>
-        <button class = "btn1"> Make Copy!</button> 
-        <button class="modifytitle">Change Name</button>
-          <button id="deletelastcard">Delete</button>
-      </div> -->
       <div class = "card">
         <!-- Title/Header Code -->
         <h4 class = "title">${this.characterName}</h4>
@@ -183,7 +170,7 @@ static styles= css`
         ></meme-maker>
          </meme-maker>
      </div>
-        <details class = 'details'>
+        <details class='details'>
           <summary>Poosh</summary>
          <p> ${this.characterBio}</p>
          <slot></slot>

@@ -38,6 +38,7 @@
 </head>
 
 <body>
+  <pusheenFriends></pusheenFriends>
   <div class = "buttons">
     <button class="btn">Details!</button> 
     <button class ="btn2">Change Color </button>
@@ -51,9 +52,12 @@
  <p> Presenting the infamous Pusheen </p>
   </character-card>
 </div>
-
-  <script type="module" src="./src/character-card.js"></script>
-
+  <script type = "module">
+    import "./src/character-card.js";
+    import "./src/pusheenFriends.json";
+    import "./src/pusheenBuddies.js";
+  </script>
+  
   <script>
     // making copy of card good
 
